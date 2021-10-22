@@ -14,7 +14,7 @@ function App() {
       <header className='App-header'>
         <div className='conteudo'>
           {stock.counter}
-          <button onClick={() => dispatch(asyncIncrement())}>
+          <button onClick={() => dispatch(asyncIncrement({ offset: 10 }))}>
             async Somar
           </button>
           <button onClick={() => dispatch(asyncDecrement())}>
