@@ -1,22 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './store';
-import { decrement, increment } from './store/Stock.store';
+import { asyncDecrement, asyncIncrement } from './store/Stock.store';
 import "./styles/main.css";
 
 function App() {
+  //Para acessar funções do store
   const dispatch = useDispatch();
+  //Para acessar o conteúdo das variáveis do store
   const stock = useSelector((state: RootState) => state.stock);
 
   return (
     <div className='App conteudo'>
       <header className='App-header'>
         <div className='conteudo'>
-          {stock?.counter}
-          <button onClick={() => dispatch(increment())}>
-            Somar
+          {stock.counter}
+          <button onClick={() => dispatch(asyncIncrement())}>
+            async Somar
           </button>
-          <button onClick={() => dispatch(decrement())}>
-            Subitrair
+          <button onClick={() => dispatch(asyncDecrement())}>
+            async Subitrair
           </button>
         </div>
       </header>
